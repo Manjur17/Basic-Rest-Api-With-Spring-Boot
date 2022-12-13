@@ -9,14 +9,15 @@ import java.util.*;
 
 @RestController //spring knows we are making rest API
 public class UserController {
+
     @Autowired
     UserService userService;
-    // we generally add to database
+    // database
 
     @GetMapping("/get_users")
-    public ResponseEntity<List<User>> getUsers() {
+    public ResponseEntity<List<User>> getUsers(){
 
-        return new ResponseEntity(userService.getAllUsers(), HttpStatus.ACCEPTED);
+        return new ResponseEntity(userService.getAllUsers(),HttpStatus.ACCEPTED);
     }
 
 //    @PostMapping("/add_user")
@@ -28,9 +29,27 @@ public class UserController {
 //    }
 
     @PostMapping("/add_user_body")
-    public ResponseEntity addUserBody(@RequestBody(required = true) User u) {
+    public ResponseEntity addUserBody(@RequestBody(required = true)User u)
+    {
         userService.addUserToDB(u);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
+//    @GetMapping("/get_user/{id}")
+//    public User getUser(@PathVariable("id") int x)
+//    {
+//        return users.get(x);
+//    }
+
+//    @DeleteMapping("/del_user/{id}")
+//    public void deleteUser(@PathVariable("id") int idx)
+//    {
+//        users.remove(idx);
+//    }
+//
+//    @PutMapping("/update/{id}")
+//    public void updateUser(@PathVariable("id") int id,@RequestBody()User user)
+//    {
+//        users.put(id,user);
+//    }
 }
