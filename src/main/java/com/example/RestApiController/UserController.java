@@ -11,10 +11,10 @@ import java.util.*;
 public class UserController {
     @Autowired
     UserService userService;
-    // database
+    // we generally add to database
 
     @GetMapping("/get_users")
-    public ResponseEntity<List<User>> getUsers(){
+    public ResponseEntity<List<User>> getUsers() {
 
         return new ResponseEntity(userService.getAllUsers(), HttpStatus.ACCEPTED);
     }
@@ -28,8 +28,7 @@ public class UserController {
 //    }
 
     @PostMapping("/add_user_body")
-    public ResponseEntity addUserBody(@RequestBody(required = true)User u)
-    {
+    public ResponseEntity addUserBody(@RequestBody(required = true) User u) {
         userService.addUserToDB(u);
         return new ResponseEntity(HttpStatus.CREATED);
     }
