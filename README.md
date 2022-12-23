@@ -1,5 +1,5 @@
 
-Creating a basic Rest API With Spring Boot.
+Created a basic Rest API With Spring Boot.
 
 A basic MVC Spring Application
 
